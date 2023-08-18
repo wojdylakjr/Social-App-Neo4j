@@ -1,0 +1,8 @@
+<!-- <div class="container"> -->
+<mat-form-field appearance="fill" style="margin-left: auto;">
+    <mat-label>Aktualny uzytkownik</mat-label>
+    <mat-select [(value)]="currentUser" (selectionChange)="setCurrentUser($event.value.id)">
+        <mat-option [value]="user" *ngFor="let user of allUsers">{{ user.name }}</mat-option>
+    </mat-select>
+</mat-form-field>
+<!-- </div> -->

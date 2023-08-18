@@ -1,0 +1,40 @@
+.mat-elevation-z8 {
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.mat-elevation-z8-table {
+    width: 100%;
+    margin: auto;
+}
+
+.example-card {
+    width: 45%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 2%;
+    padding-left: 4%;
+    min-height: 130px;
+    // margin: 10px;
+    // margin-top: 50px;
+}
+
+.large-icon {
+    transform: scale(8);
+    position: absolute;
+    top: 80px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.icon-column {
+    float: left;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+    <mat-card-header class="card-comment">
+        <div>
+            <mat-card-subtitle>{{comment.author?.name}}</mat-card-subtitle>
+            <mat-card-content>{{comment.content}}</mat-card-content>
+            <!-- <mat-card-title>{{comment.content}}</mat-card-title> -->
+        </div>
+        <button class="like-commnets" *ngIf="isCommentLiked==false" mat-icon-button (click)="addLikeToComment()" (mouseenter)="openLikesList()" (mouseleave)="hideLikesList()">
+      <mat-icon>thumb_up</mat-icon>
+      {{comment.likes?.length}}
+    </button>
+        <button class="like-commnets" *ngIf="isCommentLiked==true" mat-icon-button color="warn" (click)="isCommentLiked = false" (mouseenter)="openLikesList()" (mouseleave)="hideLikesList()">
+      <mat-icon>thumb_up</mat-icon>
+      {{comment.likes?.length! }}
+    </button>
+        <!-- <button mat-icon-button (mouseenter)="openLikesList()" (mouseleave)="hideLikesList()">
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button> -->
+
+        <app-likes-list *ngIf="showLikesList" [likes]="comment.likes!"></app-likes-list>
+    </mat-card-header>
+
+    <!-- <mat-card-content>
+        {{post.content}}
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>{{post.likes?.length}} LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+</mat-card>

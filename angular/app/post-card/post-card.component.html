@@ -1,0 +1,40 @@
+<mat-card class="example-card">
+    <mat-card-header class="card-header header-text">
+        <mat-card-title class="header-text">{{post.title}}</mat-card-title>
+        <mat-card-actions>
+            <button (mouseenter)="openLikesList()" (mouseleave)="hideLikesList()" *ngIf="isPostLiked==false" mat-icon-button (click)="likePost()">
+        <mat-icon>thumb_up</mat-icon>
+        {{post.likes?.length}}
+      </button>
+            <button (mouseenter)="openLikesList()" (mouseleave)="hideLikesList()" *ngIf="isPostLiked==true" mat-icon-button color="warn" (click)="isPostLiked = false">
+        <mat-icon>thumb_up</mat-icon>
+        {{post.likes?.length!}}
+      </button>
+            <!-- <button mat-icon-button (click)="toogleLikesList()">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </button> -->
+            <app-likes-list *ngIf="showLikesList" [likes]="post.likes!"></app-likes-list>
+        </mat-card-actions>
+        <mat-card-subtitle>{{post.author?.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+        {{post.content}}
+        <div class="comments-section">
+            <span style="margin-bottom: 0; font-weight: bold;">Comments</span>
+            <form class="example-form" [formGroup]="addCommentForm" (ngSubmit)="addComment()">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Add comment</mat-label>
+                    <input matInput type="text" formControlName="content">
+                    <button matSuffix mat-icon-button>
+            <mat-icon>send</mat-icon>
+          </button>
+                </mat-form-field>
+
+            </form>
+            <div *ngFor="let comment of post.comments!.reverse()">
+                <app-comment [comment]="comment"></app-comment>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>

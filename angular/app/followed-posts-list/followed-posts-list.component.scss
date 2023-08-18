@@ -1,0 +1,34 @@
+.example-card {
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 40px;
+    margin-top: 50px;
+    .card-header {
+        justify-content: space-between;
+        .header-text {
+            margin-left: 0 !important;
+        }
+    }
+    .card-content {
+        margin: 0 16px;
+        font-size: large;
+        .comments-section {
+            border-top: 1px solid black;
+            margin-top: 16px;
+            padding-top: 20px;
+            font-size: smaller;
+        }
+    }
+}
+
+.readonly-wrapper {
+    cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+    pointer-events: none;
+}
+
+.example-form-field {
+    width: 560px;
+}

@@ -1,0 +1,73 @@
+<mat-card class="example-card">
+    <div class="column">
+        <mat-card-title style="padding-top: 18px;">
+            Current User
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h2 style="padding-top: 15px;">{{currentUser.name}}
+            </h2>
+        </mat-card-subtitle>
+    </div>
+    <div class="icon-column">
+        <mat-icon class="large-icon" color="primary">account_box</mat-icon>
+    </div>
+</mat-card>
+
+<div class="mat-elevation-z8">
+    <div style="display: flex;">
+        <h1 style="margin: 2%; text-align:center">Followed users</h1>
+    </div>
+    <table mat-table [dataSource]="currentUser.follows!" matSort class="mat-elevation-z8-table">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action</th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    <button mat-icon-button color="primary">
+            <mat-icon>visibility</mat-icon>
+          </button>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+</div>
+
+
+<div class="mat-elevation-z8">
+    <div style="display: flex;">
+        <h1 style="margin: 2%; text-align:center">Other users</h1>
+        <!-- <a mat-raised-button color="primary" routerLink="add" routerLinkActive="list-item-active" style="margin: 2%;">Add
+      New</a> -->
+    </div>
+    <table mat-table [dataSource]="allUsers" matSort class="mat-elevation-z8-table">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action</th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    <button mat-raised-button color="primary" (click)="addComment(element.id)">
+            follow
+          </button>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+</div>

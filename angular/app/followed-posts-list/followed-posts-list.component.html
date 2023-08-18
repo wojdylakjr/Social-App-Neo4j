@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+    <mat-card-header class="card-header header-text">
+        <mat-card-title class="header-text">Add post</mat-card-title>
+        <!-- <mat-card-subtitle>O czym myslisz</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content class="card-content">
+
+
+        <form class="example-form" [formGroup]="addPostForm" (ngSubmit)="addPost()">
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" formControlName="title">
+                <!-- <button matSuffix mat-icon-button>
+              <mat-icon>send</mat-icon>
+            </button> -->
+            </mat-form-field>
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Post</mat-label>
+                <input matInput type="text" formControlName="content">
+                <button matSuffix mat-icon-button>
+          <mat-icon>send</mat-icon>
+        </button>
+            </mat-form-field>
+
+        </form>
+
+    </mat-card-content>
+
+</mat-card>
+
+
+<app-post-card *ngFor="let post of posts.reverse();" [post]="post"></app-post-card>

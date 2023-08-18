@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    margin-bottom: 0.5rem;
+    .card-comment {
+        align-items: center;
+        .like-commnets {
+            margin-left: auto;
+        }
+    }
+}
